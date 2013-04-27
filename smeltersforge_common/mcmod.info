@@ -1,0 +1,32 @@
+[
+{
+
+	"modid": "smeltersforge",
+
+	"name": "Smelters Forge",
+
+	"description": "Adds a whole new way to make weapons, tools and even building materials",
+
+	"version": "1.0b",
+
+	"mcversion": "1.5.1",
+
+	"logoFile": "/smeltersforgelogo.png",
+
+	"url": "http://shadowravengames.co.uk/smeltersforge",
+
+	"updateUrl": "http://shadowravengames.co.uk/smeltersforge-version",
+
+	"authors": ["ShadowRavenGames"],
+
+	"credits": "Mod by Shadow Raven Games",
+
+	"parent": "",
+
+	"screenshots": [],
+
+	"dependencies": [
+	]
+
+}
+]
