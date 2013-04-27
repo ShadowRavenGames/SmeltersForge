@@ -2,6 +2,7 @@ package uk.co.shadowravengames.smeltersforge.blocks;
 
 import uk.co.shadowravengames.smeltersforge.lib.BlockIds;
 import uk.co.shadowravengames.smeltersforge.lib.Reference;
+import uk.co.shadowravengames.smeltersforge.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
@@ -14,7 +15,8 @@ public class Blocks {
 	
 	public static void init() {
 		// Ore Generation
-		GameRegistry.registerBlock(Blocks, OreItems.class);
+		GameRegistry.registerBlock(Blocks, Strings.ORE_BLOCK_NAME);
+		
 		LanguageRegistry.addName(new ItemStack(Blocks, BlockIds.BLOCKS_DEFAULT, 0), "Sodium Ore");
 		LanguageRegistry.addName(new ItemStack(Blocks, BlockIds.BLOCKS_DEFAULT, 1), "Calcium Ore");
 		LanguageRegistry.addName(new ItemStack(Blocks, BlockIds.BLOCKS_DEFAULT, 2), "Magnesium Ore");

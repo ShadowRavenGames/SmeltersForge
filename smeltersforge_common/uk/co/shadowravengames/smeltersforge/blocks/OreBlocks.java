@@ -3,13 +3,12 @@ package uk.co.shadowravengames.smeltersforge.blocks;
 import java.util.Random;
 
 import uk.co.shadowravengames.smeltersforge.lib.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class OreBlocks extends Block {
+public class OreBlocks extends Blocks {
 	
 	public OreBlocks(int i) {
 		super(i, Material.rock);
