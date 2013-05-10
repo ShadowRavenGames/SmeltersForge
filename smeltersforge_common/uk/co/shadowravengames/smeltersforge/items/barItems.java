@@ -1,13 +1,18 @@
 package uk.co.shadowravengames.smeltersforge.items;
 
-import java.util.Random;
+import java.util.List;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+import uk.co.shadowravengames.smeltersforge.SmeltersForge;
 import uk.co.shadowravengames.smeltersforge.lib.Reference;
 
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.Icon;
 
 public class barItems extends Item {
 	
@@ -32,19 +37,42 @@ public class barItems extends Item {
 	
 	public barItems(int i) {
 		super(i);
-	    setCreativeTab(CreativeTabs.tabMaterials);
-		setMaxDamage(0);
+        setCreativeTab(SmeltersForge.smeltersForgeTab);
 		setHasSubtypes(true);
 	}
 	
-    public int getIconFromDamage(int par1)
-    {
-        return this.iconIndex = par1+16;
+	@SideOnly(Side.CLIENT)
+    private Icon[] icons;
+	
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IconRegister iconRegister){
+        icons = new Icon[16];
+        for( int i = 0; i < icons.length; i++ ) {
+        	icons[i] = iconRegister.registerIcon(Reference.TEXTURE_PATH + "bar_" + i);
+        }
     }
     
-    public String getItemNameIS(ItemStack par1ItemStack)
-    {
-        int var2 = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 15);
-        return super.getItemDisplayName(par1ItemStack) + "." + blockNames[var2];
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Icon getIconFromDamage(int par1) {
+    	return icons[par1];
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public void getSubItems(int par1, CreativeTabs par2createTabs, List par3list) {
+    	for(int i = 0; i < icons.length; i++ ) {
+    		par3list.add(new ItemStack(par1, 1, i));
+    	}
+    }
+    
+    @Override
+    public String getUnlocalizedName(ItemStack itemstack) {
+        return getUnlocalizedName() + "." + blockNames[itemstack.getItemDamage()];
+    }
+    
+    @Override
+    public String getItemDisplayName(ItemStack itemStack) {
+    	return super.getItemDisplayName(itemStack);
     }
  }
